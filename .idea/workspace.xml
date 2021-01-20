@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56df36aa-e59e-4fb1-9dcd-2a2d2f2b9061" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_20_121320_add_projects_user_id_table.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../lar/app/Entities/File/File.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../lar/app/Entities/File/FileRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/DatabaseBackup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/DatabaseBackup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/FilesBackup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/FilesBackup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DatabaseBackups.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DatabaseBackups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Files.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/FilesBackups.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FilesBackups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Server.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +207,7 @@
       <workItem from="1610746799188" duration="1860000" />
       <workItem from="1610784599703" duration="3917000" />
       <workItem from="1610870910359" duration="1611000" />
-      <workItem from="1611138427834" duration="1531000" />
+      <workItem from="1611138427834" duration="2452000" />
     </task>
     <servers />
   </component>
