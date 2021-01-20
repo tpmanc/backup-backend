@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $user
  * @property string $password
  * @property string $database
+ * @property-read Server $server
  */
 class Database extends Model
 {
@@ -26,4 +27,9 @@ class Database extends Model
         'password',
         'database',
     ];
+
+    public function server()
+    {
+        return $this->belongsTo(Server::class);
+    }
 }

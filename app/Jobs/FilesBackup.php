@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\FilesBackupReady;
 use App\Models\Files;
 use App\Models\FilesBackups;
 use App\Models\Server;
@@ -22,7 +23,7 @@ class FilesBackup implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param int $id
      */
     public function __construct(int $id)
     {
@@ -55,5 +56,9 @@ class FilesBackup implements ShouldQueue
         $backup->name = $fileName;
         $backup->path = '/tmp/';
         $backup->save();
+
+        event(
+            new FilesBackupReady($backup)
+        );
     }
 }

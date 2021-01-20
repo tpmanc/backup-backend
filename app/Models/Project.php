@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property int $created_at
  * @property int $updated_at
+ * @property-read User $user
  */
 class Project extends Model
 {
@@ -22,5 +23,11 @@ class Project extends Model
 
     protected $fillable = [
         'title',
+        'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

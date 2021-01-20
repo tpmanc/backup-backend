@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -18,6 +19,6 @@ use Illuminate\Support\Facades\Broadcast;
 // });
 
 Broadcast::routes(['middleware' => ['web', 'auth']]);
-Broadcast::channel('test', function($user, int $task_id) {
-    return true;
-}); 
+Broadcast::channel('backup-ready-{userId}', function(User $user, int $userId) {
+    return $user->id === $userId;
+});

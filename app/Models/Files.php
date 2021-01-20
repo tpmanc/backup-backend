@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $server_id
  * @property string $path
+ * @property-read Server $server
  */
 class Files extends Model
 {
@@ -22,4 +23,9 @@ class Files extends Model
         'server_id',
         'path',
     ];
+
+    public function server()
+    {
+        return $this->belongsTo(Server::class);
+    }
 }

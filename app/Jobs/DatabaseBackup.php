@@ -2,7 +2,9 @@
 
 namespace App\Jobs;
 
+use App\Events\DatabaseBackupReady;
 use App\Models\Database;
+use App\Models\DatabaseBackups;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -19,7 +21,7 @@ class DatabaseBackup implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param int $id
      */
     public function __construct(int $id)
     {
@@ -38,5 +40,14 @@ class DatabaseBackup implements ShouldQueue
 
         $stream = ssh2_exec($connection, 'pwd');
         var_dump($stream);
+
+        $backup = new DatabaseBackups();
+        $backup->name = '';
+        $backup->path = '';
+        $backup->save();
+
+        event(
+            new DatabaseBackupReady($backup)
+        );
     }
 }

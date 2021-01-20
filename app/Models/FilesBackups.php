@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $files_id
  * @property string $name
  * @property string $path
+ * @property-read Files $files
  */
 class FilesBackups extends Model
 {
@@ -24,4 +25,9 @@ class FilesBackups extends Model
         'name',
         'path',
     ];
+
+    public function files()
+    {
+        return $this->belongsTo(Files::class);
+    }
 }

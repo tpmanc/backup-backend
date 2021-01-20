@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $database_id
  * @property string $name
  * @property string $path
+ * @property-read Database $database
  */
 class DatabaseBackups extends Model
 {
@@ -24,4 +25,9 @@ class DatabaseBackups extends Model
         'name',
         'path',
     ];
+
+    public function database()
+    {
+        return $this->belongsTo(Database::class);
+    }
 }

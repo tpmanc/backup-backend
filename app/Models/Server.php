@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $user
  * @property string $password
  * @property string $port
+ * @property-read Project $project
  */
 class Server extends Model
 {
@@ -28,4 +29,9 @@ class Server extends Model
         'password',
         'port',
     ];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }
