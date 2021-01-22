@@ -48,15 +48,15 @@ class FilesBackup implements ShouldQueue
         $date = date('d_m_Y_H_i');
         $fileName = "$date.tar.gz";
         $path = storage_path('app');
-        $storagePath = "/{$this->server->id}/{$this->model->id}";
-        $command = "tar -czvf {$path}{$storagePath}/$fileName $folder";
+        $storagePath = "{$this->server->id}/{$this->model->id}";
+        $command = "tar -czvf {$path}/{$storagePath}/$fileName $folder";
         shell_exec($command);
         echo "Archive created: $date.tar.gz \n";
 
         $backup = new FilesBackups();
         $backup->files_id = $this->model->id;
         $backup->name = $fileName;
-        $backup->path = $storagePath;
+        $backup->path = "{$path}/{$storagePath}";
         $backup->save();
 
         event(
