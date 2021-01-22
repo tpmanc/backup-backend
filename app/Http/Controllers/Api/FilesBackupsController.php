@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Api\ApiFilesBackups;
 use App\Models\FilesBackups;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FilesBackupsController
 {
@@ -20,5 +22,18 @@ class FilesBackupsController
         }
 
         return $result;
+    }
+
+    public function download(Request $request)
+    {
+        $id = $request->get('id');
+        $backup = FilesBackups::where('id', $id)->first();
+        $url = Storage::url("{$backup->path}/{$backup->name}");
+
+        return new JsonResponse(
+            [
+                'url' => $url,
+            ]
+        );
     }
 }

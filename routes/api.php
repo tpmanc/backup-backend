@@ -56,4 +56,6 @@ Route::post('/files/delete', [FilesController::class, 'delete']);
 Route::post('/files/run', [FilesController::class, 'run']);
 
 Route::get('/database-backups', [DatabaseBackupsController::class, 'all']);
+Route::get('/database-backup/download', [DatabaseBackupsController::class, 'download']);
 Route::get('/files-backups', [FilesBackupsController::class, 'all']);
+Route::get('/files-backup/download', [FilesBackupsController::class, 'download']);

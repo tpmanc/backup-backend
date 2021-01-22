@@ -12,6 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 
 class FilesBackup implements ShouldQueue
 {
@@ -42,19 +43,20 @@ class FilesBackup implements ShouldQueue
         $command = "rsync -chavzP -e 'sshpass -p \"{$this->server->password}\" ssh -o \"StrictHostKeyChecking no\" -p {$this->server->port}' {$this->server->user}@{$this->server->host}:/var/www/kesha-sugar/ $folder";
         shell_exec($command);
 
-
         echo "Rsync finished\n";
 
         $date = date('d_m_Y_H_i');
         $fileName = "$date.tar.gz";
-        $command = "tar -czvf /tmp/$fileName $folder";
+        $path = storage_path('app');
+        $storagePath = "/{$this->server->id}/{$this->model->id}";
+        $command = "tar -czvf {$path}{$storagePath}/$fileName $folder";
         shell_exec($command);
         echo "Archive created: $date.tar.gz \n";
 
         $backup = new FilesBackups();
         $backup->files_id = $this->model->id;
         $backup->name = $fileName;
-        $backup->path = '/tmp/';
+        $backup->path = $storagePath;
         $backup->save();
 
         event(
